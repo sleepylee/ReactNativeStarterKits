@@ -6,14 +6,14 @@ export default {
       icon: 'ios-home'
     },
     {
+      name: 'Markets',
+      route: 'markets',
+      icon: 'ios-podium'
+    },
+    {
       name: 'Gallery',
       route: 'gallery',
       icon: 'ios-images'
-    },
-    {
-      name: 'Shop',
-      route: 'shop',
-      icon: 'ios-shirt'
     }
   ]
 };

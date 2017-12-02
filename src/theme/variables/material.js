@@ -131,7 +131,7 @@ export default {
 
   // Footer
   footerHeight: 55,
-  footerDefaultBg: '#59656C',
+  footerDefaultBg: '#262D33',
 
   // FooterTab
   tabBarTextColor: '#b3c7f9',
@@ -142,7 +142,7 @@ export default {
   tabActiveBgColor: undefined,
 
   // Tab
-  tabDefaultBg: '#59656C',
+  tabDefaultBg: '#262D33',
   topTabBarTextColor: '#b3c7f9',
   topTabBarActiveTextColor: '#fff',
   topTabActiveBgColor: undefined,
@@ -151,7 +151,7 @@ export default {
 
   // Header
   toolbarBtnColor: '#fff',
-  toolbarDefaultBg: '#59656C',
+  toolbarDefaultBg: '#262D33',
   toolbarHeight: platform === 'ios' ? 76 : 56,
   toolbarIconSize: platform === 'ios' ? 20 : 22,
   toolbarSearchIconSize: platform === 'ios' ? 20 : 23,
@@ -159,7 +159,7 @@ export default {
   searchBarHeight: platform === 'ios' ? 30 : 40,
   toolbarInverseBg: '#222',
   toolbarTextColor: '#fff',
-  toolbarDefaultBorder: '#59656C',
+  toolbarDefaultBorder: '#262D33',
   iosStatusbar: 'light-content',
   get statusBarColor() {
     return color(this.toolbarDefaultBg)
@@ -284,5 +284,5 @@ export default {
 
   // New Variable
   inputGroupRoundedBorderRadius: 30,
-  safeAreaBackground: '#59656C'
+  safeAreaBackground: '#262D33'
 };

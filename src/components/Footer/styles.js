@@ -1,4 +1,3 @@
-import color from 'color';
 import { StyleSheet, PixelRatio } from 'react-native';
 import material from '~/theme/variables/material';
 
@@ -34,8 +33,6 @@ export default StyleSheet.create({
   },
   icon: {
     fontSize: PixelRatio.getFontScale() * 24,
-    color: color('#fff')
-      .darken(0.2)
-      .hex()
+    color: '#838383'
   }
 });

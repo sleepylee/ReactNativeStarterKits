@@ -3,7 +3,7 @@ import Home from './container/Home';
 import Gallery from './container/Gallery';
 import Setting from './container/Setting';
 import UserProfile from './container/UserProfile';
-import Shop from './container/Shop';
+import Markets from './container/Markets';
 
 export default {
   home: {
@@ -19,9 +19,9 @@ export default {
     footerType: 'home',
     cache: true
   },
-  shop: {
-    title: 'Shop',
-    Page: Shop,
+  markets: {
+    title: 'Markets',
+    Page: Markets,
     headerType: 'home',
     footerType: 'home',
     cache: true

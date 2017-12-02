@@ -17,7 +17,7 @@ class Root extends React.Component {
 
   componentDidMount() {
     configStore(store => {
-      store.dispatch(resetTo('home'));
+      store.dispatch(resetTo('markets'));
       this.store = store;
       this.setState({ isLoading: false }, () => this.forceUpdate());
     });
@@ -52,4 +52,4 @@ const styles = {
     backgroundColor: material.safeAreaBackground
   }
 };
-AppRegistry.registerComponent('ReactNativeStarterKit', () => Root);
+AppRegistry.registerComponent('starterkit', () => Root);

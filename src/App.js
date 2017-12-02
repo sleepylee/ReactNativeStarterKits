@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { BackHandler } from 'react-native';
+import { BackHandler, UIManager } from 'react-native';
 import { Drawer, StyleProvider, Container } from 'native-base';
 
 import Navigator from './components/Navigator';
@@ -30,14 +30,8 @@ const getPage = route => {
   return match;
 };
 
-// const animatedOption = {
-//   toValue: 0,
-//   duration: 200,
-//   easing: Easing.bezier(0.075, 0.82, 0.165, 1),
-//   useNativeDriver: true
-// };
-// UIManager.setLayoutAnimationEnabledExperimental &&
-//   UIManager.setLayoutAnimationEnabledExperimental(true);
+UIManager.setLayoutAnimationEnabledExperimental &&
+  UIManager.setLayoutAnimationEnabledExperimental(true);
 
 @connect(
   state => ({
@@ -74,7 +68,7 @@ export default class App extends Component {
   }
 
   // replace view from stack, hard code but have high performance
-  componentWillReceiveProps({ router, drawerState, modalState }) {
+  componentWillReceiveProps({ router, drawerState }) {
     // process for route change only
     if (router.current.routeName !== this.props.router.current.routeName) {
       const route = getPage(router.current);

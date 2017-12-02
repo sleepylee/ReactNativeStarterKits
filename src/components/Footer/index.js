@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Button, Footer, FooterTab } from 'native-base';
+import { Button, Footer, FooterTab, Text } from 'native-base';
 import Icon from '~/elements/Icon';
 import styles from './styles';
 import options from './options';
@@ -28,10 +28,11 @@ export default class extends PureComponent {
       <Footer>
         <FooterTab>
           {options.footerItems.map((item, index) => {
-            const isActivated = this.state.route === item.route;
+            const isActivated = route === item.route;
             return (
               <Button key={index} transparent onPress={this.tabClick.bind(this, item.route)}>
-                <Icon name={item.icon} style={[styles.icon, isActivated && { color: '#fff' }]} />
+                <Icon name={item.icon} style={[styles.icon, isActivated && { color: '#E3B02B' }]} />
+                <Text style={{ color: isActivated ? '#E3B02B' : '#838383' }}>{item.name}</Text>
               </Button>
             );
           })}
