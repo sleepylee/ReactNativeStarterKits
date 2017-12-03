@@ -66,7 +66,7 @@ export default class extends React.Component {
         <View
           style={{
             width: material.deviceWidth * 0.3,
-            height: 30,
+            height: 35,
             backgroundColor: decrease ? '#90124F' : '#4F6E17',
             justifyContent: 'center',
             alignItems: 'center',

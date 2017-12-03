@@ -6,7 +6,7 @@ import styles from './styles';
 const Preload = () => (
   <View style={styles.container}>
     <Progress.CircleSnail color={['red', 'green', 'blue']} />
-    <Text>Loading...</Text>
+    <Text style={{ color: '#fff' }}>Loading...</Text>
   </View>
 );
 export default Preload;

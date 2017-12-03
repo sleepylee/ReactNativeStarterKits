@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { BackHandler, UIManager } from 'react-native';
 import { Drawer, StyleProvider, Container } from 'native-base';
+import SplashScreen from 'react-native-splash-screen';
 
 import Navigator from './components/Navigator';
 import Header from './components/Header';
@@ -50,6 +51,9 @@ export default class App extends Component {
   }
 
   componentDidMount() {
+    // hide splash screen
+    SplashScreen.hide();
+
     BackHandler.addEventListener('hardwareBackPress', () => {
       const { router, goBack, isPlayingGallery, closeGallery } = this.props;
       // close gallery if exist
