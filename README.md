@@ -1,5 +1,12 @@
 # ReactNativeStarterKit
 
+Another simple, powerful starter kit for real life project.
+
+## Screen shot
+
+![Home](https://image.prntscr.com/image/CKwG43euR2WniPNF0PaXuQ.png)
+![Drawer Menu](https://image.prntscr.com/image/2qPHwuuzTu6jDhhVUJSRXw.png)
+
 ## Dependencies
 
 * react-native-vector-icons
@@ -10,6 +17,7 @@
 * react-native-progress
 * react-native-progress-image
 * react-native-image-picker
+* react-native-splash-screen
 * iPhoneX supported
 
 ## Folder structure
@@ -176,6 +184,8 @@ yarn run flow
 
 ## Generate icon and splash screen
 
+We already have **design.sketch** template file
+
 ```
 // install tool
 brew install imagemagick
@@ -187,9 +197,6 @@ yo rn-toolbox:assets --icon icon.png --splash splash.png --store
 
 * splash.png: square 2048x2048
 * icon.png: square 512x512
-
-You may want to follow this module for better UX:
-https://github.com/crazycodeboy/react-native-splash-screen
 
 ## Integrate Map
 
