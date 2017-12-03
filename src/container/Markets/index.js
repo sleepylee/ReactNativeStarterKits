@@ -1,8 +1,9 @@
 import { unionBy } from 'lodash';
 import React from 'react';
-import { FlatList, View } from 'react-native';
-import { Container, Text } from 'native-base';
+import { FlatList, View, Text, StyleSheet } from 'react-native';
+import { Container } from 'native-base';
 import Item from './Item';
+import Preload from '../Preload';
 
 export default class extends React.Component {
   state = { loading: false, hasMore: true, paginate: 20, start: 0, data: [] };
@@ -42,19 +43,14 @@ export default class extends React.Component {
   // }
 
   render() {
-    console.log('render');
-    const { data } = this.state;
+    const { data, loading } = this.state;
+    if (loading) {
+      return <Preload style={{ backgroundColor: '#151A1D' }} />;
+    }
+
     return (
       <Container style={{ backgroundColor: '#151A1D' }}>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            backgroundColor: '#1B2126',
-            padding: 10
-          }}
-        >
+        <View style={styles.headingContainer}>
           <Text style={{ color: '#fff', fontSize: 12 }}>Pair / Vol</Text>
           <Text style={{ color: '#fff', fontSize: 12 }}>Last Price</Text>
           <Text style={{ color: '#E3B02B', fontSize: 12 }}>Change %</Text>
@@ -66,11 +62,23 @@ export default class extends React.Component {
           data={data}
           keyExtractor={item => item.id}
           renderItem={({ item }) => <Item item={item} />}
-          ItemSeparatorComponent={() => (
-            <View style={{ height: 5, backgroundColor: 'transparent' }} />
-          )}
+          ItemSeparatorComponent={() => <View style={styles.divider} />}
         />
       </Container>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  headingContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: '#1B2126',
+    padding: 10
+  },
+  divider: {
+    height: 5,
+    backgroundColor: 'transparent'
+  }
+});

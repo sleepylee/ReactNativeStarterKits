@@ -1,54 +1,35 @@
-import Register from './container/Register';
-import Home from './container/Home';
-import Gallery from './container/Gallery';
-import Setting from './container/Setting';
-import UserProfile from './container/UserProfile';
 import Markets from './container/Markets';
+import ChangeLogs from './container/ChangeLogs';
+import VIPGroups from './container/VIPGroups';
+// import Gallery from './container/Gallery';
 
 export default {
-  home: {
-    title: 'Home',
-    Page: Home,
-    headerType: 'home',
-    cache: true
-  },
-  gallery: {
-    title: 'Gallery',
-    Page: Gallery,
-    headerType: 'home',
-    footerType: 'home',
-    cache: true
-  },
   markets: {
     title: 'Markets',
     Page: Markets,
     headerType: 'home',
-    footerType: 'home',
-    cache: true
-  },
-  setting: {
-    title: 'Setting',
-    Page: Setting,
-    headerType: 'back',
     footerType: 'none',
     cache: true
   },
-  'user/profile': {
-    title: 'User Profile',
-    Page: UserProfile,
-    headerType: 'none',
+  changeLogs: {
+    title: 'ChangeLogs',
+    Page: ChangeLogs,
+    headerType: 'home',
+    footerType: 'none',
     cache: true
   },
-  register: {
-    title: 'Register',
-    Page: Register,
-    headerType: 'none',
-    footerType: 'none'
+  vipGroups: {
+    title: 'VIPGroups',
+    Page: VIPGroups,
+    headerType: 'home',
+    footerType: 'none',
+    cache: true
   },
   notFound: {
-    title: 'Home',
-    Page: Home,
+    title: 'Markets',
+    Page: Markets,
     headerType: 'none',
-    footerType: 'none'
+    footerType: 'none',
+    cache: true
   }
 };

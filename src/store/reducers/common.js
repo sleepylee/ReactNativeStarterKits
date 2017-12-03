@@ -1,4 +1,3 @@
-import { initRoute } from '~/constants/routes';
 import {
   NAV_RESET,
   NAV_PUSH,
@@ -95,7 +94,7 @@ export const requests = (state = {}, { type, payload, meta }) => {
  */
 const initRouteState = {
   current: {
-    routeName: initRoute
+    routeName: 'markets'
   },
   stack: []
 };

@@ -3,9 +3,9 @@ import { View, Text } from 'native-base';
 import * as Progress from 'react-native-progress';
 import styles from './styles';
 
-const Preload = () => (
-  <View style={styles.container}>
-    <Progress.CircleSnail color={['red', 'green', 'blue']} />
+const Preload = ({ style, color = ['red', 'green', 'blue'] }) => (
+  <View style={[styles.container, style && style]}>
+    <Progress.CircleSnail color={color} />
     <Text style={{ color: '#fff' }}>Loading...</Text>
   </View>
 );

@@ -103,10 +103,6 @@ export default class extends PureComponent {
           <Text small style={styles.text}>
             example@example.com
           </Text>
-          {/*<View style={styles.editContainer}>
-              <Text small style={styles.text}>{'LA'}, {'USA'}</Text>
-              /!*<Icon onPress={e=>{/!*this.navigateTo('user/profile')*!/}} name="edit" style={styles.iconEdit} />*!/
-            </View>*/}
         </ListItem>
         <View style={styles.listItemContainer}>
           {options.listItems.map((item, index) => {
@@ -114,18 +110,14 @@ export default class extends PureComponent {
             return (
               <ListItem noBorder key={index} button onPress={() => this.navigateTo(item.route)}>
                 <Left>
-                  <Icon name={item.icon} style={[styles.icon, isCurrent && { color: '#222222' }]} />
-                  <Text style={styles.iconText}>{item.name}</Text>
+                  <Icon name={item.icon} style={[styles.icon, isCurrent && { color: '#E3B02B' }]} />
+                  <Text style={[styles.iconText, isCurrent && { color: '#E3B02B' }]}>
+                    {item.name}
+                  </Text>
                 </Left>
               </ListItem>
             );
           })}
-          <ListItem noBorder button onPress={() => this.props.logout()} style={{ marginTop: 20 }}>
-            <Left>
-              <Icon name={'ios-log-out'} style={styles.icon} />
-              <Text style={styles.iconTextLast}>Log out</Text>
-            </Left>
-          </ListItem>
         </View>
       </Content>
     );

@@ -38,6 +38,7 @@ export default class extends PureComponent {
   renderToastView(message) {
     return (
       <TouchableOpacity
+        activeOpacity={1}
         style={{ alignSelf: 'center', backgroundColor: 'transparent' }}
         onPress={() => this._closeToast(100)}
       >

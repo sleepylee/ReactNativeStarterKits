@@ -1,34 +1,29 @@
 export default {
   listItems: [
     {
-      name: 'Home',
-      route: 'home',
-      icon: 'ios-home'
+      name: 'Markets',
+      route: 'markets',
+      icon: 'ios-podium'
     },
     {
-      name: 'My Profile',
-      route: 'userProfileUpdate',
-      icon: 'ios-contact'
+      name: 'Herose/Zerose',
+      route: 'heroseZerose',
+      icon: 'ios-medal'
     },
     {
-      name: 'Gallery',
-      route: 'gallery',
-      icon: 'ios-images'
-    },
-    {
-      name: 'Whatsapp',
-      route: 'whatsapp',
+      name: 'VIP groups',
+      route: 'vipGroups',
       icon: 'ios-chatbubbles'
     },
     {
-      name: 'Settings',
-      route: 'setting',
-      icon: 'ios-construct'
+      name: 'Change logs',
+      route: 'changeLogs',
+      icon: 'ios-list-box'
     },
     {
-      name: 'History',
-      route: 'fanHistory',
-      icon: 'ios-paper'
+      name: 'About',
+      route: 'about',
+      icon: 'md-information-circle'
     }
   ]
 };

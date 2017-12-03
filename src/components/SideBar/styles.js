@@ -51,7 +51,7 @@ export default StyleSheet.create({
   },
   icon: {
     fontSize: 20,
-    color: 'white',
+    color: '#fff',
     justifyContent: 'center',
     width: 25,
     alignSelf: 'center'
@@ -71,7 +71,7 @@ export default StyleSheet.create({
     fontSize: material.platform === 'ios' ? 14 : 12,
     fontWeight: '400',
     textAlign: 'center',
-    color: '#FFF',
+    color: '#fff',
     marginLeft: 20
   },
   iconTextLast: {

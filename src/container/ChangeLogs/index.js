@@ -1,16 +1,14 @@
 import React from 'react';
 import { Container, Content, Text } from 'native-base';
 
-class Setting extends React.PureComponent {
+export default class extends React.PureComponent {
   render() {
     return (
       <Container>
         <Content>
-          <Text>Setting</Text>
+          <Text>Profile</Text>
         </Content>
       </Container>
     );
   }
 }
-
-export default Setting;
