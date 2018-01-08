@@ -74,13 +74,16 @@ export default class App extends Component {
   // replace view from stack, hard code but have high performance
   componentWillReceiveProps({ router, drawerState }) {
     // process for route change only
-    if (router.current.routeName !== this.props.router.current.routeName) {
+    if (router && router.current) {
       const route = getPage(router.current);
       if (route) {
         // show header and footer, and clear search string
-        this.navigator.navigate(route);
-        this.header.show(route.headerType, route.title);
-        this.footer.show(route.footerType, route.routeName);
+        this.navigator.navigate(route, router.current.actionType);
+        const title = route.title
+          ? route.title
+          : route.params && route.params.title ? route.params.title : null;
+        this.handleShowHeaderFooter(this.header, route.headerType, title);
+        this.handleShowHeaderFooter(this.footer, route.footerType, route.routeName);
       } else {
         // no need to push to route
         this.props.setToast(`Scene not found: ${router.current.routeName}`, 'danger');
@@ -142,6 +145,22 @@ export default class App extends Component {
         return forwardTo(route);
     }
   };
+
+  handleShowHeaderFooter(ref, footerType, routeName) {
+    if (!ref) {
+      return;
+    }
+    let element = ref;
+    let whatdog = 10;
+    while (element._reactInternalFiber && whatdog > 0) {
+      if (element.show) {
+        element.show(footerType, routeName);
+        break;
+      }
+      element = element._reactInternalFiber.child && element._reactInternalFiber.child.stateNode;
+      whatdog--;
+    }
+  }
 
   handleFocusableComponent(ref, focus = true) {
     if (!ref) {

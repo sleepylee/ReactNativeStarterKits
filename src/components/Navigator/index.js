@@ -68,7 +68,7 @@ export default class Navigator extends Component {
     this.translate(prevIndex, translateX - prefix * deviceWidth);
   }
 
-  navigate(route) {
+  navigate(route, actionType) {
     let destIndex = this.routeStack.findIndex(item => item.routeName === route.routeName);
     const oldRoute = this.routeStack[this.presentedIndex];
     if (destIndex !== this.presentedIndex) {
@@ -81,7 +81,10 @@ export default class Navigator extends Component {
         updated = 1;
       }
 
-      if (oldRoute.cache) {
+      if (
+        (oldRoute.cache && !oldRoute.cachingWhenForward) ||
+        (oldRoute.cache && oldRoute.cachingWhenForward && actionType === 'forwardTo')
+      ) {
         this.presentedIndex = destIndex;
         // blur as soon as possible
         this.props.onBlur(oldRoute);
@@ -126,10 +129,6 @@ export default class Navigator extends Component {
   }
 
   render() {
-    return (
-      <View style={styles.container}>
-        {this.scenes}
-      </View>
-    );
+    return <View style={styles.container}>{this.scenes}</View>;
   }
 }

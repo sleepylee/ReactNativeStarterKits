@@ -22,17 +22,17 @@ import {
 /**
  * NAVIGATE
  */
-export const navigate = (routeName, params, reset = false) => {
+export const navigate = (routeName, actionType, params, reset = false) => {
   const action = {
     type: reset ? NAV_RESET : NAV_PUSH,
-    payload: { routeName }
+    payload: { routeName, actionType }
   };
   if (typeof params === 'object') action.payload.params = params;
   return action;
 };
-export const forwardTo = (routeName, params) => navigate(routeName, params, false);
-export const resetTo = (routeName, params) => navigate(routeName, params, true);
-export const goBack = () => ({ type: NAV_POP, payload: null });
+export const forwardTo = (routeName, params) => navigate(routeName, 'forwardTo', params, false);
+export const resetTo = (routeName, params) => navigate(routeName, 'forwardTo', params, true);
+export const goBack = () => ({ type: NAV_POP, payload: { actionType: 'goBack' } });
 
 /**
  * REQUEST

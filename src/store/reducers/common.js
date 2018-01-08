@@ -1,3 +1,4 @@
+import _ from 'underscore';
 import {
   NAV_RESET,
   NAV_PUSH,
@@ -102,19 +103,44 @@ const initRouteState = {
 export const router = (state = initRouteState, { type, payload }) => {
   switch (type) {
     case NAV_PUSH: {
-      const isMatchCurrentRoute = state.current.routeName === payload.routeName;
+      let isMatchCurrentRoute = false;
+      if (state.current.routeName === payload.routeName) {
+        if (
+          state.current.params &&
+          payload.params &&
+          _.isEqual(state.current.params, payload.params)
+        ) {
+          isMatchCurrentRoute = true;
+        }
+      }
       return isMatchCurrentRoute
         ? state
         : {
             current: payload,
             stack: [
               state.current,
-              ...(state.stack.length > 4 ? state.stack.splice(0, -1) : state.stack)
+              ...(state.stack.length > 20 ? state.stack.splice(0, -1) : state.stack)
             ]
           };
     }
     case NAV_POP:
-      return { current: state.stack[0] || initRoute, stack: state.stack.splice(1) };
+      let route = {};
+      if (state.stack[0] && state.stack[0].params) {
+        route = {
+          routeName: state.stack[0].routeName || initRoute,
+          params: state.stack[0].params,
+          ...payload
+        };
+      } else {
+        route = {
+          routeName: (state.stack[0] && state.stack[0].routeName) || initRoute,
+          ...payload
+        };
+      }
+      return {
+        current: route,
+        stack: state.stack.splice(1)
+      };
     case NAV_RESET:
       return { current: payload, stack: initRouteState.stack };
     case APP_REMOVE_LOGGED_USER:

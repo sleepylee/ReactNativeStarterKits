@@ -23,7 +23,8 @@ export default {
     Page: VIPGroups,
     headerType: 'home',
     footerType: 'none',
-    cache: true
+    cache: true,
+    cachingWhenForward: true // We want to cache when going back this route
   },
   notFound: {
     title: 'Markets',
